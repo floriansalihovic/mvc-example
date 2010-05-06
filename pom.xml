@@ -28,21 +28,43 @@
     <dependency>
       <groupId>com.adobe.flex.framework</groupId>
       <artifactId>flex-framework</artifactId>
-      <version>4.0.0.14159</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>com.adobe.flexunit</groupId>
       <artifactId>flexunit</artifactId>
-      <version>0.85</version>
       <type>swc</type>
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.adobe.flex.framework</groupId>
+        <artifactId>flex-framework</artifactId>
+        <version>4.0.0.14159</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>com.adobe.flexunit</groupId>
+        <artifactId>flexunit</artifactId>
+        <version>0.85</version>
+        <type>swc</type>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <!-- Build Settings -->
   <build>
     <sourceDirectory>src/main/flex</sourceDirectory>
+    <extensions>
+      <extension>
+        <groupId>org.jvnet.wagon-svn</groupId>
+        <artifactId>wagon-svn</artifactId>
+        <version>1.9</version>
+      </extension>
+    </extensions>
     <plugins>
       <plugin>
         <groupId>org.sonatype.flexmojos</groupId>
@@ -58,13 +80,56 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.3</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.3</version>
+          </dependency>
+        </dependencies>
+      </plugin>
     </plugins>
   </build>
 
   <!-- More Project Informations -->
   <name>mvc example</name>
+  <description>A short work in progress implementation of the conceptional work done at the ffk10 workshop
+Beautiful Flex Architectures.</description>
+  <url>http://www.github.com/floriansalihovic</url>
+  <inceptionYear>2010</inceptionYear>
+  <licenses>
+    <license>
+      <name>Apache Software License, version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Florian Salihovic</name>
+      <email>florian.salihovic@me.com</email>
+      <organization>flashforum.de</organization>
+    </developer>
+  </developers>
 
   <!-- Environment Settings -->
+  <scm>
+    <connection>scm:git:git://github.com/floriansalihovic</connection>
+    <url>scm:git:git://github.com/floriansalihovic</url>
+  </scm>
   <repositories>
     <repository>
       <id>Sonatype Flex Group</id>
