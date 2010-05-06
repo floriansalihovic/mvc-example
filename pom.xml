@@ -127,8 +127,8 @@ Beautiful Flex Architectures.</description>
 
   <!-- Environment Settings -->
   <scm>
-    <connection>scm:git:git://github.com/floriansalihovic</connection>
-    <url>scm:git:git://github.com/floriansalihovic</url>
+    <connection>scm:git:git://github.com/floriansalihovic/mvc-example.git</connection>
+    <url>scm:git:git://github.com/floriansalihovic/mvc-example.git</url>
   </scm>
   <repositories>
     <repository>
